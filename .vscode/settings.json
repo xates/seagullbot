@@ -1,0 +1,23 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        120,
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120",
+    ],
+    "python.linting.pylintArgs": [
+        "--max-line-length=120",
+        "--disable=wildcard-import,unused-wildcard-import,unused-argument,missing-module-docstring,missing-class-docstring,missing-function-docstring,invalid-name",
+    ],
+    "workbench.editor.closeOnFileDelete": false,
+    "python.pythonPath": "C:\\Program Files\\Python38\\python.exe",
+}
