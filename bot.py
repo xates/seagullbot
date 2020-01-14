@@ -81,7 +81,9 @@ def start(update: Update, context: CallbackContext) -> None:
 def inlinequery(update: Update, context: CallbackContext) -> None:
     top_text, _, bottom_text = update.inline_query.query.upper().partition("\n")
     uuid = str(uuid4())
-    width, height = make_meme(top_text, bottom_text.replace("\n", " "), "seagull.jpg", uuid)
+    width, height = make_meme(top_text if bottom_text else "",
+                              bottom_text.replace("\n", " ") or top_text,
+                              "seagull.jpg", uuid)
 
     results = [
         InlineQueryResultPhoto(
