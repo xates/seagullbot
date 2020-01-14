@@ -19,5 +19,4 @@
         "--disable=wildcard-import,unused-wildcard-import,unused-argument,missing-module-docstring,missing-class-docstring,missing-function-docstring,invalid-name",
     ],
     "workbench.editor.closeOnFileDelete": false,
-    "python.pythonPath": "C:\\Program Files\\Python38\\python.exe",
 }
