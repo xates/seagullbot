@@ -69,6 +69,8 @@ def make_meme(top_text: str, bottom_text: str, template: str, target: str) -> No
     img.thumbnail(thumb_size)
     img.save(f"www/i/{target}-thumb.jpg")
 
+    return width, height
+
 
 def start(update: Update, context: CallbackContext) -> None:
     uuid = str(uuid4())
@@ -79,13 +81,15 @@ def start(update: Update, context: CallbackContext) -> None:
 def inlinequery(update: Update, context: CallbackContext) -> None:
     top_text, _, bottom_text = update.inline_query.query.upper().partition("\n")
     uuid = str(uuid4())
-    make_meme(top_text, bottom_text.replace("\n", " "), "seagull.jpg", uuid)
+    width, height = make_meme(top_text, bottom_text.replace("\n", " "), "seagull.jpg", uuid)
 
     results = [
         InlineQueryResultPhoto(
             id=uuid,
             photo_url=f"{APP_URL}i/{uuid}.jpg",
-            thumb_url=f"{APP_URL}i/{uuid}-thumb.jpg"
+            thumb_url=f"{APP_URL}i/{uuid}-thumb.jpg",
+            photo_width=width,
+            photo_height=height
         )]
 
     update.inline_query.answer(results)
