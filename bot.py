@@ -88,7 +88,7 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
                 photo_height=height
             ))
 
-    if n == 2:
+    elif n == 2:
         uuid = str(uuid4())
         width, height = make_meme(texts, [0, -1], "small", uuid)
         results.append(
@@ -100,9 +100,9 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
                 photo_height=height
             ))
 
-    if n == 2:
         uuid = str(uuid4())
-        width, height = make_meme([texts[0], "*INHALES*", texts[1]], [0, 665, -1], "medium", uuid)
+        texts.insert(1, "*INHALES*")
+        width, height = make_meme(texts, [0, 665, -1], "medium", uuid)
         results.append(
             InlineQueryResultPhoto(
                 id=uuid,
@@ -112,7 +112,7 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
                 photo_height=height
             ))
 
-    if n == 3:
+    elif n == 3:
         uuid = str(uuid4())
         width, height = make_meme(texts, [0, 665, -1], "medium", uuid)
         results.append(
@@ -124,7 +124,19 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
                 photo_height=height
             ))
 
-    if n == 4:
+        uuid = str(uuid4())
+        texts.insert(2, "*INHALES*")
+        width, height = make_meme(texts, [0, 677, 1342, -1], "large", uuid)
+        results.append(
+            InlineQueryResultPhoto(
+                id=uuid,
+                photo_url=f"{APP_URL}{uuid}.jpg",
+                thumb_url=f"{APP_URL}{uuid}-thumb.jpg",
+                photo_width=width,
+                photo_height=height
+            ))
+
+    elif n == 4:
         uuid = str(uuid4())
         width, height = make_meme(texts, [0, 677, 1342, -1], "large", uuid)
         results.append(
