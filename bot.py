@@ -31,7 +31,7 @@ def make_meme(texts: list, offsets: list, template: str, target: str) -> None:
 
     for text, offset in zip(texts, offsets):
         # find biggest font size that fits
-        font_size = 72
+        font_size = 80
         font = ImageFont.truetype("impact.ttf", font_size)
         text_size = font.getsize(text)
 
